@@ -1,0 +1,28 @@
+#bag{
+  width: 200px;
+  height: 500px;
+  margin: 0 auto;
+  background: url(img/img1.png) center no-repeat;
+  /* block-size: 80%; */
+}
+#bag.changeImg{
+  background-image: url('img/小狗.jpg');
+}
+#bag-health{
+  width: 200px;
+  border: 2px #000 solid;
+  margin: 0 auto 20px auto
+}
+#bag-health div{
+  height: 20px;
+  background: crimson
+}
+#bag-btn {
+  width: 160px;
+  margin: 20px auto;
+  /* text-align: center */
+}
+button {
+  padding: 10px
+}
+

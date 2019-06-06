@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+  </head>
+<body>
+  <div id="one">
+    {{title}}
+    <button v-on:click='show'>one Btn Alert</button>
+    {{greet}}
+    <mydiv></mydiv>
+  </div>
+
+  <div id="two">
+    {{title}}
+    <button v-on:click='show'>one Btn Alert</button>
+    {{greet}}
+    <mydiv></mydiv>
+
+    <div>
+      <button v-on:click='changeOneTitle'>改变One的title内容</button>
+    </div>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>

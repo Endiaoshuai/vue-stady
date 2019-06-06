@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://unpkg.com/vue"></script>
+  <link rel="stylesheet" href="./sytel.css">
+  <title>Document</title>
+</head>
+<body>
+    <div id="info">
+      <p>name: {{ name }}</p>
+      <p>age: {{ age }}</p>
+      <p>job: {{ job }}</p>
+      <!-- <button v-on:click="age++">涨一岁</button>
+      <button v-on:click="age--">减一岁</button> -->
+      <!-- "v-on:" 可以用 "@"q3 代替 -->
+      <button v-on:dblclick="add(1)">双击涨一岁</button>
+      <button v-on:click.once ="subtract(1)">单击减一岁(允许一次)</button>
+      <button v-on:dblclick="add(10)">双击涨10岁</button>
+      <button @click="subtract(5)">单击减5岁</button>
+      <h4>saying: {{ saying('aftrnoon') }}</h4>
+      <!-- 属性绑定 -->
+      <a v-bind:href="website">My website</a>
+      <p v-html='newWebSite'></p>
+      <input type="text" v-bind:value='name'>
+
+      <!-- 事件 -->
+      <div id="canvas" v-on:mousemove="updateXY ">
+        {{ x }}, {{ y }}
+        <span v-on:mousemove.stop="">stop xy</span>
+        <span v-on:mousemove="stopxy">stop xy</span>
+      </div>
+      <a href="https://baidu.com" @click="alert">百度</a>
+      <p>
+          <a href="https://baidu.com" @click.prevent="alert">不跳转百度</a>
+      </p>
+
+      <input type="text" v-on:keyup='logName' @blur="lostFocus"> <span id="showPressCount"></span> 
+      <input type="text" @blur="lostFocus" placeholder="按下alt+enter才提交" v-on:keyup.alt.enter='logAge'>
+      <h2>双向数据绑定 select input textarea</h2>
+      <input ref='hobby' placeholder="用ref传递数据" v-on:keyup='inputHobby'> <span>{{ hobby }}</span>
+      <input placeholder="用v-mode绑定数据"  v-model='sex'> <span>{{ sex }}</span>
+      <h2>计算属性 method computed </h2>
+      <button v-on:click='a++'>addToA</button> <span>{{a}}</span>
+      <button v-on:click='b++'>addToB</button> <span>{{b}}</span>
+      <p> age:{{age}} + A:{{a}} = {{ addToA }} </p>
+      <p> age:{{age}} + B:{{b}} = {{ addToB }} </p>
+ 
+      <h2> 动态 css class</h2>
+      <!-- <h3  v-bind:class="{changeColor: true}">示例 1</h3>
+      <div id='change' v-on:click='changeColor = !changeColor' v-bind:class='{changeCss:changeColor}'>
+        <span>ABC</span>
+        <span>123</span>
+      </div> -->
+      <h3> 用computed 来改变样式</h3>
+      <button v-on:click='changeColor = !changeColor'>改变颜色</button>
+      <button v-on:click='changeLength = !changeLength'>改变长度</button>
+      <div v-bind:class='changeCL'>
+        <span>ABC</span>
+        <span>123</span>
+      </div>
+
+      <div>
+        <h2>v-if 无dom不占位, v-show 会占位</h2>
+        <button v-on:click='error =! error'>网络错误</button>
+        <p v-if='error'>网络错误400</p>
+        <p v-else>网络成功200</p>
+      </div>
+
+      <div>
+        <h2>v-for</h2>
+        <ul>
+          <li v-for='(character, index) of characters'>{{index}} {{ character }}  </li>
+        </ul>
+        <ul>
+            <li v-for='(user, index) in users'>{{index+1}}.{{user.name}} - {{user.age}}</li>
+        </ul>
+        <template v-for='(user, index) in users'>
+            <h4>{{index+1}}.{{user.name}} - {{user.age}}</h4>
+        </template>
+        <template v-for='(user, index) in users'>
+            <div v-for='(val, key) in user'>
+                <p>{{key}} - {{val}}</p>
+            </div>
+        </template>
+        
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
